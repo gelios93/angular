@@ -1,0 +1,13 @@
+<table class="table">
+    <tr>
+        <td>Name</td>
+        <td>Category</td>
+        <td>Price</td>
+    </tr>
+    <tr *ngFor="let order of orders">
+        <td>{{order.name}}</td>
+        <td>{{order.category}}</td>
+        <td>{{order.price}}</td>
+    </tr>
+</table>
+<button (click)="logOut()">Выйти</button>

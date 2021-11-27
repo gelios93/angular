@@ -1,0 +1,51 @@
+
+<form class="form-group" [formGroup]="form" (ngSubmit)="onLogin()">
+
+  <mat-form-field class="example-full-width" appearance="fill">
+
+    <mat-label>Введите ваш логин</mat-label>
+
+    <input matInput type="login" formControlName="login" [errorStateMatcher]="matcher">
+
+    <mat-error *ngIf="LoginFormControl.hasError('required')">
+      Логин <strong>обязателен</strong>
+    </mat-error>
+
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width" appearance="fill">
+
+    <mat-label>Введите ваш пароль</mat-label>
+
+    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" [errorStateMatcher]="matcher">
+
+    <mat-error *ngIf="PasswordFormControl.hasError('required')">
+      Пароль <strong>обязателен</strong>
+    </mat-error>
+
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+
+  </mat-form-field>
+  <br>
+  <button type="submit">Войти</button>
+
+</form>
+
+
+<!-- <div class="main-div" fxLayoutAlign="center center" fxFlexFill >
+    <mat-card fxFlex="25">
+        <mat-toolbar class="login-toolbar">Login page</mat-toolbar>
+        <form class="login-form" fxLatoutAlign="stretch" fxLayout="column" [formGroup]="form" >
+        <mat-form-field>
+            <input matInput placeholder="Username" formControlName="username">
+          </mat-form-field>
+        
+          <mat-form-field>
+            <input matInput type="password" placeholder="Password" formControlName="password">
+          </mat-form-field>
+          <button mat-raised-button type="submit">Login</button>
+        </form>
+    </mat-card>
+  </div> -->
